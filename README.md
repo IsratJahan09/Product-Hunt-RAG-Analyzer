@@ -1,6 +1,7 @@
-# 🚀 Product Hunt RAG Analyzer
+# 🧠 Product Hunt RAG Analyzer
 
-AI-powered competitive intelligence tool for Product Hunt products using Retrieval-Augmented Generation (RAG).
+The Product Hunt RAG Analyzer is an AI-powered competitive intelligence system that analyzes Product Hunt competitors using Retrieval-Augmented Generation (RAG).
+It transforms raw Product Hunt data into actionable business insights such as feature gaps, sentiment trends, market positioning, and strategic recommendations.
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -32,9 +33,9 @@ Product Hunt RAG Analyzer helps entrepreneurs and product managers understand th
 | ⚡ **CLI Tool** | Command-line interface for automation and scripting |
 
 ## 🏗️ Architecture
-
+1.
 ```
-┌─────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────┐                                    
 │                        User Interfaces                          │
 ├─────────────────┬─────────────────────┬─────────────────────────┤
 │  Streamlit UI   │     FastAPI REST    │         CLI             │
@@ -65,6 +66,25 @@ Product Hunt RAG Analyzer helps entrepreneurs and product managers understand th
 │                    FAISS Vector Storage                         │
 │              (Products Index + Reviews Index)                   │
 └─────────────────────────────────────────────────────────────────┘
+
+```
+2.Quick review
+```
+User Idea
+   ↓
+Embedding
+   ↓
+FAISS Retrieval (Competitors)
+   ↓
+Review Retrieval
+   ↓
+Sentiment + Feature Analysis
+   ↓
+LLM (RAG Context)
+   ↓
+Strategic Insights
+   ↓
+Structured Report
 ```
 
 ## 🚀 Quick Start
@@ -243,6 +263,7 @@ product-hunt-rag-analyzer/
 ├── .env.example                # Environment variables template
 ├── Makefile                    # Build automation
 ├── requirements.txt            # Python dependencies
+├── ProductHunt_RAG_Finetuning.ipynb           
 └── setup.py                    # Package setup
 ```
 
