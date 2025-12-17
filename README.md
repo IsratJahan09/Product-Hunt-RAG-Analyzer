@@ -98,7 +98,7 @@ Structured Report
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/product-hunt-rag-analyzer.git
+   git clone https://github.com/IsratJahan09/Product-Hunt-RAG-Analyzer.git
    cd product-hunt-rag-analyzer
    ```
 
