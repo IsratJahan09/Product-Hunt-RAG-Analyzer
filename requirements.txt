@@ -1,0 +1,18 @@
+# Streamlit Frontend Dependencies
+
+# Core Framework
+streamlit>=1.28.0
+
+# HTTP Client
+requests>=2.31.0
+
+# Data Processing
+pandas>=2.0.0
+
+# Date/Time Utilities
+python-dateutil>=2.8.2
+
+# Testing
+hypothesis>=6.90.0
+pytest>=7.4.0
+pytest-cov>=4.1.0

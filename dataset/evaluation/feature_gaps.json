@@ -1,0 +1,334 @@
+{
+  "features": [
+    {
+      "feature": "Multi-language support",
+      "category": "functionality",
+      "priority": "high",
+      "description": "Support for non-English languages (Spanish, French, German, etc.)"
+    },
+    {
+      "feature": "Custom output structure",
+      "category": "customization",
+      "priority": "medium",
+      "description": "Ability to customize output fields and data structure"
+    },
+    {
+      "feature": "Sentiment detection",
+      "category": "ai_features",
+      "priority": "high",
+      "description": "Automatic detection of sentiment or tone in text (positive/negative/neutral)"
+    },
+    {
+      "feature": "Offline mode",
+      "category": "functionality",
+      "priority": "high",
+      "description": "Ability to work without internet connection"
+    },
+    {
+      "feature": "Mobile app",
+      "category": "platform",
+      "priority": "high",
+      "description": "Native mobile applications for iOS and Android"
+    },
+    {
+      "feature": "Team collaboration",
+      "category": "collaboration",
+      "priority": "high",
+      "description": "Real-time collaboration features for teams"
+    },
+    {
+      "feature": "API access",
+      "category": "integrations",
+      "priority": "medium",
+      "description": "RESTful API for third-party integrations"
+    },
+    {
+      "feature": "Keyboard shortcuts",
+      "category": "ui_ux",
+      "priority": "medium",
+      "description": "Customizable keyboard shortcuts for power users"
+    },
+    {
+      "feature": "Dark mode",
+      "category": "ui_ux",
+      "priority": "low",
+      "description": "Dark theme option for reduced eye strain"
+    },
+    {
+      "feature": "Export functionality",
+      "category": "functionality",
+      "priority": "high",
+      "description": "Export data to various formats (CSV, JSON, PDF, etc.)"
+    },
+    {
+      "feature": "Search functionality",
+      "category": "functionality",
+      "priority": "high",
+      "description": "Advanced search with filters and full-text search"
+    },
+    {
+      "feature": "Notifications",
+      "category": "functionality",
+      "priority": "medium",
+      "description": "Push notifications and email alerts for important events"
+    },
+    {
+      "feature": "Templates",
+      "category": "productivity",
+      "priority": "medium",
+      "description": "Pre-built templates for common use cases"
+    },
+    {
+      "feature": "Automation workflows",
+      "category": "automation",
+      "priority": "high",
+      "description": "Automated workflows and triggers for repetitive tasks"
+    },
+    {
+      "feature": "Calendar integration",
+      "category": "integrations",
+      "priority": "high",
+      "description": "Integration with Google Calendar, Outlook, Apple Calendar"
+    },
+    {
+      "feature": "Slack integration",
+      "category": "integrations",
+      "priority": "medium",
+      "description": "Integration with Slack for notifications and commands"
+    },
+    {
+      "feature": "Email integration",
+      "category": "integrations",
+      "priority": "high",
+      "description": "Integration with email clients (Gmail, Outlook, etc.)"
+    },
+    {
+      "feature": "CRM integration",
+      "category": "integrations",
+      "priority": "medium",
+      "description": "Integration with CRM systems (Salesforce, HubSpot, etc.)"
+    },
+    {
+      "feature": "Notion integration",
+      "category": "integrations",
+      "priority": "medium",
+      "description": "Sync and integration with Notion workspace"
+    },
+    {
+      "feature": "Voice commands",
+      "category": "ai_features",
+      "priority": "high",
+      "description": "Voice-activated commands and controls"
+    },
+    {
+      "feature": "Whisper mode",
+      "category": "ai_features",
+      "priority": "medium",
+      "description": "Quiet voice input mode for shared spaces"
+    },
+    {
+      "feature": "Context awareness",
+      "category": "ai_features",
+      "priority": "high",
+      "description": "AI adapts tone and style based on context (email, chat, docs)"
+    },
+    {
+      "feature": "Grammar correction",
+      "category": "ai_features",
+      "priority": "high",
+      "description": "Automatic grammar and spelling correction"
+    },
+    {
+      "feature": "Summarization",
+      "category": "ai_features",
+      "priority": "medium",
+      "description": "AI-powered text summarization"
+    },
+    {
+      "feature": "Translation",
+      "category": "ai_features",
+      "priority": "medium",
+      "description": "Automatic translation between languages"
+    },
+    {
+      "feature": "Custom vocabulary",
+      "category": "customization",
+      "priority": "medium",
+      "description": "Add custom words and industry-specific terminology"
+    },
+    {
+      "feature": "User roles and permissions",
+      "category": "collaboration",
+      "priority": "high",
+      "description": "Role-based access control for team members"
+    },
+    {
+      "feature": "Version history",
+      "category": "functionality",
+      "priority": "medium",
+      "description": "Track changes and restore previous versions"
+    },
+    {
+      "feature": "Comments and annotations",
+      "category": "collaboration",
+      "priority": "medium",
+      "description": "Add comments and annotations to content"
+    },
+    {
+      "feature": "Real-time sync",
+      "category": "functionality",
+      "priority": "high",
+      "description": "Real-time synchronization across devices"
+    },
+    {
+      "feature": "Batch processing",
+      "category": "functionality",
+      "priority": "medium",
+      "description": "Process multiple items simultaneously"
+    },
+    {
+      "feature": "Analytics dashboard",
+      "category": "analytics",
+      "priority": "medium",
+      "description": "Visual dashboard with usage statistics and insights"
+    },
+    {
+      "feature": "Custom reports",
+      "category": "analytics",
+      "priority": "low",
+      "description": "Generate custom reports with selected metrics"
+    },
+    {
+      "feature": "Data visualization",
+      "category": "analytics",
+      "priority": "medium",
+      "description": "Charts and graphs for data visualization"
+    },
+    {
+      "feature": "Recurring tasks",
+      "category": "productivity",
+      "priority": "high",
+      "description": "Set up recurring tasks with custom schedules"
+    },
+    {
+      "feature": "Reminders",
+      "category": "productivity",
+      "priority": "high",
+      "description": "Smart reminders based on time, location, or context"
+    },
+    {
+      "feature": "Prioritization",
+      "category": "productivity",
+      "priority": "high",
+      "description": "AI-powered task prioritization"
+    },
+    {
+      "feature": "Time tracking",
+      "category": "productivity",
+      "priority": "medium",
+      "description": "Track time spent on tasks and projects"
+    },
+    {
+      "feature": "Pomodoro timer",
+      "category": "productivity",
+      "priority": "low",
+      "description": "Built-in Pomodoro technique timer"
+    },
+    {
+      "feature": "Focus mode",
+      "category": "productivity",
+      "priority": "medium",
+      "description": "Distraction-free focus mode"
+    },
+    {
+      "feature": "Tagging system",
+      "category": "organization",
+      "priority": "medium",
+      "description": "Tag items for better organization and filtering"
+    },
+    {
+      "feature": "Folders and categories",
+      "category": "organization",
+      "priority": "high",
+      "description": "Organize items in folders and categories"
+    },
+    {
+      "feature": "Favorites/bookmarks",
+      "category": "organization",
+      "priority": "low",
+      "description": "Mark items as favorites for quick access"
+    },
+    {
+      "feature": "Drag and drop",
+      "category": "ui_ux",
+      "priority": "medium",
+      "description": "Intuitive drag-and-drop interface"
+    },
+    {
+      "feature": "Customizable views",
+      "category": "ui_ux",
+      "priority": "medium",
+      "description": "Multiple view options (list, grid, kanban, calendar)"
+    },
+    {
+      "feature": "Responsive design",
+      "category": "ui_ux",
+      "priority": "high",
+      "description": "Responsive design that works on all screen sizes"
+    },
+    {
+      "feature": "Onboarding tutorial",
+      "category": "ui_ux",
+      "priority": "medium",
+      "description": "Interactive onboarding tutorial for new users"
+    },
+    {
+      "feature": "Help documentation",
+      "category": "support",
+      "priority": "medium",
+      "description": "Comprehensive help documentation and guides"
+    },
+    {
+      "feature": "In-app support",
+      "category": "support",
+      "priority": "low",
+      "description": "In-app chat support or help widget"
+    },
+    {
+      "feature": "Two-factor authentication",
+      "category": "security",
+      "priority": "high",
+      "description": "Two-factor authentication for enhanced security"
+    },
+    {
+      "feature": "Data encryption",
+      "category": "security",
+      "priority": "high",
+      "description": "End-to-end encryption for sensitive data"
+    },
+    {
+      "feature": "Privacy controls",
+      "category": "security",
+      "priority": "high",
+      "description": "Granular privacy controls and data ownership"
+    },
+    {
+      "feature": "GDPR compliance",
+      "category": "security",
+      "priority": "high",
+      "description": "GDPR compliant data handling and privacy"
+    },
+    {
+      "feature": "Self-hosted option",
+      "category": "deployment",
+      "priority": "medium",
+      "description": "Option to self-host on own infrastructure"
+    },
+    {
+      "feature": "Open source",
+      "category": "deployment",
+      "priority": "low",
+      "description": "Open source codebase for transparency and customization"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+# Modelfile for ProductHunt RAG Analyzer
+# Trained with Unsloth + QLoRA on Qwen2.5-3B-Instruct
+# Dataset: instruction/input/output format with markdown final_answer
+
+# --- Use your fine-tuned GGUF model ---
+FROM ./gguf_models/producthunt_rag_3b_q4_k_m.gguf
+
+# --- Runtime parameters (tuned for analysis tasks) ---
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.1
+PARAMETER num_ctx 4096
+PARAMETER num_predict 1024
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|endoftext|>"
+
+# --- System prompt (matches training) ---
+SYSTEM """You are an expert Product Hunt analyst specializing in competitive analysis, feature gap detection, and market positioning insights."""
+
+# --- Chat template for Qwen2.5 format ---
+TEMPLATE """{{- if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}
+{{- range .Messages }}
+{{- if eq .Role "user" }}<|im_start|>user
+{{ .Content }}<|im_end|>
+{{ else if eq .Role "assistant" }}<|im_start|>assistant
+{{ .Content }}<|im_end|>
+{{ end }}
+{{- end }}
+<|im_start|>assistant
+"""
+
+# --- Few-shot examples (matching training format) ---
+MESSAGE user What are users saying about ToolScale?
+
+Product Data:
+{"product": {"name": "ToolScale", "tagline": "40+ Premium AI Tools in one subscription", "description": "ToolScale is the ultimate all-in-one platform giving you unlimited access to top-tier AI, e-commerce, SEO, design, and content creation tools.", "votes": 1, "topics": []}, "reviews": ["Stop spending hundreds of $ per month on tools & subscriptions. Toolscale gives you access to over 40 tools with a single subscription for just $29/month."]}
+
+MESSAGE assistant Based on user reviews for **ToolScale**:
+
+- Users highlight the **cost savings** compared to individual subscriptions
+- Platform offers **40+ premium tools** including ChatGPT+, Elevenlabs, Canva Pro
+- Pricing positioned as affordable at **$29/month** vs hundreds in separate subscriptions
+- Target audience: e-commerce businesses and content creators
+
+MESSAGE user Compare Figma and Sketch. Which one is better for UI design use cases?
+
+Product Data:
+{"product_1": {"name": "Figma", "tagline": "Collaborative design tool", "votes": 500}, "product_2": {"name": "Sketch", "tagline": "Digital design toolkit", "votes": 300}, "category": "UI Design"}
+
+MESSAGE assistant # Comparison: Figma vs Sketch
+
+## Figma
+- **Tagline:** Collaborative design tool
+- **Votes:** 500
+- **Strength:** Real-time collaboration, browser-based
+
+## Sketch
+- **Tagline:** Digital design toolkit
+- **Votes:** 300
+- **Strength:** Native Mac performance, extensive plugins
+
+## Quick Comparison
+
+| Aspect | Figma | Sketch |
+|--------|-------|--------|
+| Platform | Web-based | Mac only |
+| Collaboration | Real-time | Limited |
+| Community | 500 votes | 300 votes |
+
+## Recommendation
+**Figma** has stronger community traction and better collaboration features for team workflows.
+
+MESSAGE user Provide a comprehensive analysis of Baserow 2.0 including market positioning and target audience.
+
+Product Data:
+{"product": {"name": "Baserow 2.0", "tagline": "Build databases, automations, apps & agents with AI, no code", "description": "AI-powered data collaboration platform to build databases, workflows, automations, AI agents, and applications without coding.", "votes": 181, "topics": ["Productivity", "Open Source", "No-Code"]}, "reviews": ["Baserow started as an open-source alternative to Airtable. Today we launch 2.0 with automations, AI assistant Kuma, and application builder."]}
+
+MESSAGE assistant # Product Analysis: Baserow 2.0
+
+## Overview
+**Tagline:** Build databases, automations, apps & agents with AI, no code
+
+**Description:** AI-powered data collaboration platform to build databases, workflows, automations, AI agents, and applications without coding.
+
+**Categories:** Productivity, Open Source, No-Code
+
+## Market Positioning
+- **Strong Traction:** 181 votes indicates solid community interest
+- **Differentiator:** Open-source alternative to Airtable with self-hosting option
+- **Key Features:** AI assistant (Kuma), automations builder, application builder
+
+## Target Audience
+- Teams needing data collaboration without vendor lock-in
+- Developers wanting extensible, self-hosted solutions
+- Organizations with GDPR/HIPAA compliance requirements
+
+## User Feedback Insights
+- Positioned as Airtable alternative with more control
+- 2.0 release adds significant AI and automation capabilities
+
+## Recommendation
+Strong product with proven traction. Ideal for teams prioritizing data ownership and customization.

@@ -1,0 +1,156 @@
+# Product Hunt RAG Analyzer Configuration
+
+# API Configuration
+api:
+    product_hunt:
+        url: "https://api.producthunt.com/v2"
+        timeout: 30
+        retry_attempts: 3
+        retry_delays: [1, 2, 4, 8, 16] # Exponential backoff delays in seconds
+
+# Model Configuration
+models:
+    embedding:
+        name: "all-MiniLM-L6-v2"
+        dimension: 384
+        device: "cpu" # Options: "cpu", "cuda"
+        batch_size: 32
+        
+        # Fine-tuned model settings
+        use_finetuned: false  # Set to true to use fine-tuned model
+        finetuned_path: "models/embedding_finetuned/combined_model"
+
+    sentiment:
+        name: "cardiffnlp/twitter-roberta-base-sentiment-latest"
+        device: "cpu"
+        batch_size: 16
+        confidence_threshold: 0.6
+
+    llm:
+        # LLM Provider Configuration - Groq API
+        provider: "groq"  # Groq is the supported provider
+        
+        # Groq API configuration
+        api_key: "" # Empty string = use GROQ_API_KEY environment variable
+        model: "llama-3.3-70b-versatile" # Options: "llama-3.3-70b-versatile", "llama-3.1-70b-versatile", "mixtral-8x7b-32768"
+        
+        # Generation parameters
+        temperature: 0.7
+        top_p: 0.9
+        max_tokens: 3000
+        timeout: 120
+
+# Processing Configuration
+processing:
+    preprocessing:
+        batch_size: 64
+        max_text_length: 512
+        lowercase: true
+        remove_html: true
+        remove_special_chars: true
+        remove_urls_emails: true
+
+    embedding_batch_size: 32
+    sentiment_batch_size: 16
+
+# Storage Configuration
+storage:
+    data_dir: "./data"
+    raw_dir: "./data/raw"
+    processed_dir: "./data/processed"
+    indices_dir: "./data/indices"
+
+    faiss:
+        product_index_path: "./data/indices/product_index.faiss"
+        product_metadata_path: "./data/indices/product_metadata.pkl"
+        review_index_path: "./data/indices/review_index.faiss"
+        review_metadata_path: "./data/indices/review_metadata.pkl"
+        index_type: "flat" # Options: "flat", "ivf", "hnsw"
+
+        # IVF index settings (used when index_type is "ivf")
+        ivf_nlist: 100
+        ivf_nprobe: 10
+
+        # HNSW index settings (used when index_type is "hnsw")
+        hnsw_m: 32
+        hnsw_ef_construction: 200
+        hnsw_ef_search: 50
+
+# RAG Retrieval Configuration
+retrieval:
+    max_competitors: 5
+    reviews_per_competitor: 10
+    min_similarity_threshold: 0.5
+    ranking_strategy: "similarity" # Options: "similarity", "recency_weighted"
+    recency_weight: 0.3 # Used when ranking_strategy is "recency_weighted"
+
+# FastAPI Configuration
+fastapi:
+    title: "Product Hunt RAG Analyzer"
+    description: "AI-powered competitive analysis for Product Hunt products"
+    version: "1.0.0"
+    host: "0.0.0.0"
+    port: 8000
+    reload: false
+    workers: 1
+
+    cors:
+        enabled: true
+        origins:
+            - "http://localhost:3000"
+            - "http://localhost:8000"
+        allow_credentials: true
+        allow_methods: ["*"]
+        allow_headers: ["*"]
+
+    rate_limiting:
+        enabled: true
+        requests_per_minute: 60
+
+    request:
+        max_size_mb: 10
+        timeout_seconds: 300
+
+# Logging Configuration
+logging:
+    level: "INFO" # Options: "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    date_format: "%Y-%m-%d %H:%M:%S"
+
+    console:
+        enabled: true
+        level: "INFO"
+
+    file:
+        enabled: true
+        level: "DEBUG"
+        path: "./logs/app.log"
+        max_bytes: 10485760 # 10MB
+        backup_count: 5
+        rotation: true
+
+# Performance and Monitoring
+performance:
+    enable_metrics: true
+    enable_profiling: false
+    max_memory_mb: 4096
+    device: "cpu" # Options: "cpu", "cuda" - GPU/CPU device selection
+
+    # Batch size tuning
+    embedding_batch_size: 32
+    sentiment_batch_size: 16
+    preprocessing_batch_size: 64
+
+    # FAISS index type selection
+    product_index_type: "flat" # Options: "flat", "ivf", "hnsw"
+    review_index_type: "flat" # Options: "flat", "ivf", "hnsw"
+
+    metrics:
+        export_interval_seconds: 60
+        export_path: "./logs/metrics.json"
+
+# Feature Flags
+features:
+    enable_caching: true
+    enable_streaming: true
+    enable_gpu: false
